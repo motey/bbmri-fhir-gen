@@ -74,7 +74,13 @@ bbmri-fhir-gen is written in Go. All you need is a single binary which is availa
    ```
    bbmri-fhir-gen --version
    ```
-   
+
+### Docker
+
+`docker run -it docker.pkg.github.com/motey/bbmri-fhir-gen/bbmri-fhir-gen:latest --version`
+
+nope, no anonymous download so far. waiting for https://github.com/github/roadmap/issues/121
+
 ## Usage
 
 ```
