@@ -19,10 +19,12 @@ jobs:
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set tag env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Build container image
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: |
-            docker.pkg.github.com/${{ github.repository }}/bbmri-fhir-gen:${{ github.ref }}
+            docker.pkg.github.com/${{ github.repository }}/bbmri-fhir-gen:${{ env.RELEASE_VERSION }}
             docker.pkg.github.com/${{ github.repository }}/bbmri-fhir-gen:latest
